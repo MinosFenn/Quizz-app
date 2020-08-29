@@ -14,7 +14,7 @@ export type AnswerObject = {
   correctAnswer: string;
 }
 
-const TOTAL_QUESTIONS = 10;
+const TOTAL_QUESTIONS = 3;
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -77,16 +77,16 @@ if (nextQuestion === TOTAL_QUESTIONS) {
     <>
     <GlobalStyle />
     <Wrapper>
-      <h1 >LE HIP HOP & LES GRAMMY'S</h1>
+      <h1>LE HIP HOP & LES GRAMMY'S</h1>
       {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
         <button className="start" onClick={startTrivia}>
-          Let's go!
+          DEMARRER
         </button>
       ) : null}
-      {!gameOver ?
-        <p className="score">Score: {score} </p> : null}
+      { !gameOver && userAnswers.length === TOTAL_QUESTIONS ?
+        <p className="score">Score: {score} /3 </p> : null}
       {loading && <p>Loading Questions...</p>}
-      {!loading && !gameOver && (<QuestionCard
+      {userAnswers.length === TOTAL_QUESTIONS || !loading && !gameOver && (<QuestionCard
         questionNr={number + 1}
         totalQuestions={TOTAL_QUESTIONS}
         question={questions[number].question}
@@ -97,7 +97,7 @@ if (nextQuestion === TOTAL_QUESTIONS) {
       )}
       {!gameOver && !loading && userAnswers.length === number + 1 && number !== TOTAL_QUESTIONS - 1 ? (
         <button className='next' onClick={nextQuestion}>
-          Next Question
+          Question Suivante
         </button>
       ) : null}
     </Wrapper>
