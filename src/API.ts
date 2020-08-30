@@ -1,4 +1,5 @@
 import { shuffleArray } from './utils';
+import questions from './questions.json';
 
 export type Question = {
     category: string;
@@ -17,11 +18,19 @@ export enum Difficulty {
     HARD = "hard",
 }
 
-export const fetchQuizQuestions = async (amount: number, difficulty: Difficulty) => {
-const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`
-const data = await (await fetch(endpoint)).json();
-return data.results.map((question: Question) => (
-    {
+export const fetchQuizQuestions = async (
+    amount: number, 
+    difficulty: Difficulty
+    ) => {
+// the three following lines were allowing to fetch from the trivia API
+        
+// const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`
+// const data = await (await fetch(endpoint)).json();
+// return data.results.map((question: Question) => (
+
+    return questions.map((question: Question) => (
+
+{
         ...question,
         answers: shuffleArray([
             ...question.incorrect_answers, 
@@ -29,5 +38,4 @@ return data.results.map((question: Question) => (
         ])
     }
 ))
-console.log(data)
 }

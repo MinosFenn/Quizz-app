@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { fetchQuizQuestions } from './API';
+import questions from './questions.json';
 //components
 import QuestionCard from "./components/QuestionCard";
 //types
