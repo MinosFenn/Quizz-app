@@ -1,3 +1,17 @@
+
+# Typescript quizz app about th hip hop & the grammys
+
+**Preview app**
+https://boring-villani-942857.netlify.app/
+
+**next feature to work on:**
+- replace Trivia API by own questions
+- Name & score saving
+- Social media sharing with automaticly generated sentence including score.
+
+-----------------------------------------------------------
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
